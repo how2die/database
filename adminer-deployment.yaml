@@ -2,39 +2,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyadmin
+  name: adminer
 spec:
   ports:
-  - port: 80
+  - port: 8080
   selector:
-    app: phpmyadmin
+    app: adminer
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin
+  name: adminer
 spec:
   selector:
     matchLabels:
-      app: phpmyadmin
+      app: adminer
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: phpmyadmin
+        app: adminer
     spec:
       containers:
-      - name: phpmyadmin
-        image: ebspace/armhf-phpmyadmin
+      - name: adminer
+        image: adminer
         ports:
-        - containerPort: 80
-          name: http-port
+        - containerPort: 8080
         env:
-        - name: MYSQL_ROOT_PASSWORD
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-pass
+              name: postgres-pass
               key: password
-        - name: PMA_HOST
-          value: mysql

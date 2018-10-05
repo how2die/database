@@ -40,14 +40,10 @@ kubectl get pods -l app=postgres
 
 The preceding YAML file creates a service that allows other Pods in the cluster to access the database. The Service option ```clusterIP: None``` lets the Service DNS name resolve directly to the Pod’s IP address. This is optimal when you have only one Pod behind a Service and you don’t intend to increase the number of Pods.
 
-## Deploying Adminer
-
-# TODO
+### Deploying Adminer
 
 Execute the command:
 
 ```
-kubectl apply -f phpmyadmin-deployment.yaml
+kubectl apply -f adminer-deployment.yaml
 ```
-
-phpMyAdmin can now be accessed on ```[host]/phpmyadmin```
