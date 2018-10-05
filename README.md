@@ -42,7 +42,7 @@ The preceding YAML file creates a service that allows other Pods in the cluster 
 
 ### Deploying Adminer
 
-Execute the command:
+[Adminer](https://www.adminer.org/) is a lightweight tool for managing content in Postgres databases. Deploy by executing the command:
 
 ```
 kubectl apply -f adminer-deployment.yaml
