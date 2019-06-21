@@ -32,7 +32,7 @@ spec:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: postgres-pass
+              name: db-secret
               key: password
         ports:
         - containerPort: 5432
