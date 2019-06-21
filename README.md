@@ -21,7 +21,7 @@ kubectl apply -f postgres-pv.yaml
 Store credentials as Secret:
 
 ```
-kubectl create secret generic postgres-pass --from-literal=username=postgres --from-literal=password=<YOUR PASSWORD>
+kubectl create secret generic db-secret --from-literal=username=postgres --from-literal=password=<YOUR PASSWORD>
 ```
 
 Deploy Postgres:
