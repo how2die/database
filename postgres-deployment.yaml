@@ -26,9 +26,11 @@ spec:
         app: postgres
     spec:
       containers:
-      - image: postgres:11
+      - image: postgres:13
         name: postgres
         env:
+        - name: PGDATA
+          value: "/var/lib/postgresql/data/pgdata"
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -43,4 +45,4 @@ spec:
       volumes:
       - name: postgres-persistent-storage
         persistentVolumeClaim:
-          claimName: postgres-pv-claim
+          claimName: postgres-pvc
