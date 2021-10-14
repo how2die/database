@@ -15,7 +15,7 @@ Runs on a single node, but can be replicated using [StatefulSets](https://kubern
 Create a persistent volume for data:
 
 ```
-kubectl apply -f postgres-pv.yaml
+kubectl apply -f postgres-pvc.yaml
 ```
 
 Store credentials as Secret:
